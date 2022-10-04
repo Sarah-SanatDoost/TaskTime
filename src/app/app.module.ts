@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { StartComponent } from './start/start.component';
+import { StartComponent } from './components/dialog-ask-mode/start/start.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { DialogAskModeComponent } from './dialog-ask-mode/dialog-ask-mode.component';
+import { DialogAskModeComponent } from './components/dialog-ask-mode/dialog-ask-mode.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { CurrentWorkDayComponent } from './components/current-work-day/current-work-day.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 // import {JdatePipe} from 'ngx-persian';
 // import { PersianPipesModule } from 'ngx-persian-pipe';
 
@@ -16,6 +18,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     AppComponent,
     StartComponent,
     DialogAskModeComponent,
+    CurrentWorkDayComponent,
     // PersianPipesModule
     // JdatePipe
   ],
@@ -26,6 +29,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatDialogModule,
     MatButtonModule,
     MatButtonToggleModule,
+    MatProgressBarModule
   
   ],
   providers: [],

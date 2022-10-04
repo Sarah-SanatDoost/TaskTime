@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import { DialogAskModeComponent } from '../dialog-ask-mode/dialog-ask-mode.component'
+import { DialogAskModeComponent } from '../dialog-ask-mode.component';
+import { Elements } from 'src/app/interfaces/elements';
 // import { EmployeeService } from '../services/employees.service';
 
 @Component({
@@ -12,6 +13,13 @@ import { DialogAskModeComponent } from '../dialog-ask-mode/dialog-ask-mode.compo
 })
 
 export class StartComponent implements OnInit {
+
+employees : Elements[]=[
+  {firstName:'سارا' , lastName: 'صنعت دوست' , mode:'smile'},
+  {firstName:'مهسا' , lastName: 'خاتمی' , mode:'smile'},
+  {firstName:'زهرا' , lastName: 'عیدی' , mode:'smile'},
+]
+
 
 // employeeList$ :Observable<any[]> ;
 
@@ -26,6 +34,7 @@ export class StartComponent implements OnInit {
 
   
   public onOpenDialog(){
-    this.dialog.open(DialogAskModeComponent , { panelClass: 'custom-container' });
+    this.dialog.open(DialogAskModeComponent ,
+       { panelClass: 'custom-container' });
   }
 }

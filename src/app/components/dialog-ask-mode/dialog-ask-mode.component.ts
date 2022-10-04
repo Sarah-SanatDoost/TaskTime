@@ -10,6 +10,7 @@ export class DialogAskModeComponent implements OnInit {
 
   constructor() { }
 
+  description = "";
   ngOnInit(): void {
   }
 

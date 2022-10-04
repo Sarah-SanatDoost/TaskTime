@@ -5,10 +5,10 @@
 
     <div class=" d-flex input">
         <!-- *ngFor="let employee of employeeList$ | async" -->
-        <select class="custom-select border selected">
-            <option selected></option>
-            <!-- <option>سارا صنعت دوست</option>
-            <option>مهسا خاتمی</option>
+        <select class="custom-select border selected" >
+            <option *ngFor="let employee of employees"selected> {{employee.firstName}}  هستم; {{employee.lastName}}</option>
+            <option *ngFor="let employee of employees">{{employee.firstName}}{{employee.lastName}}</option>
+            <!-- <option>مهسا خاتمی</option>
             <option>مصطفی عقیلی</option>
             <option>مهدی ترابی</option> -->
         </select>

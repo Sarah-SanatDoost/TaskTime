@@ -15,3 +15,6 @@ body { margin: 0; font-family: "IRANSans", "Helvetica Neue", sans-serif; }
  .rtl{
     direction: rtl;
  }
+ .ltr{
+    direction: ltr;
+ }
