@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { DialogAskModeComponent } from '../dialog-ask-mode/dialog-ask-mode.component'
+// import { EmployeeService } from '../services/employees.service';
 
 @Component({
   selector: 'app-start',
@@ -14,7 +15,7 @@ export class StartComponent implements OnInit {
 
 // employeeList$ :Observable<any[]> ;
 
-  constructor( public dialog: MatDialog  ) {
+  constructor( public dialog: MatDialog ) {
     // , private service: EmployeesService
    }
 

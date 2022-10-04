@@ -1,19 +1,33 @@
-<div class="container d-flex flex-column iransans">
+<div class="container d-flex flex-column justify-content-center iransans rtl">
 
     <p class="welcome d-flex w-100 just justify-content-center">علی جان ، خوش اومدی</p>
 
     <p class="ask-mode d-flex justify-content-center">امروز در چه حالی ؟</p>
 
-    <div class="pro bg-warning"> <i class="fas fa-star"></i> <i class="fal fa-face-smile"></i></div>
-   
+    <!-- <div> <i class="fas fa-star"></i> <i class="fal fa-face-smile"></i></div> -->
+
 
     <div class="d-flex flex-row justify-content-center">
-        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-            <mat-button-toggle value="bold"><i class="fa-light fa-face-smile"></i></mat-button-toggle>
-            <mat-button-toggle value="italic">Italic</mat-button-toggle>
-            <mat-button-toggle value="underline">Underline</mat-button-toggle>
+        <mat-button-toggle-group name="fontStyle">
+            <mat-button-toggle class="cry"><i class="fal fa-face-sad-sweat"></i></mat-button-toggle>
+            <mat-button-toggle class="sad"><i class="fal fa-face-frown-slight"></i></mat-button-toggle>
+            <mat-button-toggle class="poker"><i class="fal fa-face-meh"></i></mat-button-toggle>
+            <mat-button-toggle class="smile"><i class="fal fa-face-smile"></i></mat-button-toggle>
+            <mat-button-toggle class="laugh"><i class="fal fa-face-laugh"></i></mat-button-toggle>
         </mat-button-toggle-group>
     </div>
-    <!-- <div class="modes d-flex w-100 justify-content-center">salam</div> -->
-    <!-- <button mat-button mat-dialog-close>close</button> -->
+
+    <div class="form-group">
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+            placeholder="هرچه میخواهد دل تنگت بگو ..."></textarea>
+    </div>
+
+    <div class="ask-start-work d-flex flex-row align-items-center justify-content-between">
+        <span>میخوای شروع به کار کنی ؟</span>
+        <div class="d-flex flex-row btns">
+            <button class="border iransans yes" mat-raised-button>آره</button>
+            <button class="border iransans" mat-raised-button>نه هنوز</button>
+        </div>
+    </div>
+
 </div>
