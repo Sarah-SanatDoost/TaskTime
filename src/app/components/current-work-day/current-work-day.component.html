@@ -1,4 +1,4 @@
-<div class="d-flex flex-column rtl">
+<div class="d-flex flex-column">
     <div class="user-name d-flex flex-row justify-content-end iransans p-4">سارا صنعت دوست</div>
 
     <div class="d-flex flex-row justify-content-center align-items-center iransans">
@@ -8,7 +8,16 @@
         <span class="rest-time ms-3">00:18</span>
     </div>
 
-    <div class="ltr">
-        <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+    <div class="time-bar-container d-flex flex-column justify-content-end ltr align-items-center iransans">
+        <div class="timebar d-flex flex-row ">
+            <span class="col d-flex flex-row justify-content-start">24:00</span>
+            <span class="col d-flex flex-row justify-content-end">00:00</span>
+        </div>
+        <div class="d-flex flex-row align-items-end ltr bar">
+            <div class="point-fill"></div>
+            <mat-progress-bar class="progress mt-5 d-flex" mode="determinate" value='40' dir="ltr"></mat-progress-bar>
+            <div class="point-empty"></div>
+        </div>
+
     </div>
 </div>

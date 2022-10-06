@@ -6,6 +6,9 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: "IRANSans", "Helvetica Neue", sans-serif; }
 
+*{
+    direction: rtl;
+}
 .iransans{
     font-family: "IRANSans";
 }
