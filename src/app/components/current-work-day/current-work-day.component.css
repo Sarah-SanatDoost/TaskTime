@@ -84,4 +84,23 @@
 }
 .time-bar-container{
     font-size: 12px;
+    
+}
+.container-timer{
+    height: 500px;
+}
+.leave{
+    width: 100px;
+    height: 40px;
+    font-size: 14px;
+    border-radius: 7px;
+     border:1px solid #cacaca ;
+    /* color: #909090;  */
+
+}
+.custom-select{
+    height: 50px;
+    width: 250px;
+    font-size: 20px;
+    border-radius: 7px;
 }

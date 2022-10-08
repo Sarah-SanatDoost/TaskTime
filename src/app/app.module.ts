@@ -10,6 +10,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { CurrentWorkDayComponent } from './components/current-work-day/current-work-day.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { DialogLeavingWorkComponent } from './components/current-work-day/dialog-leaving-work/dialog-leaving-work.component';
 // import {JdatePipe} from 'ngx-persian';
 // import { PersianPipesModule } from 'ngx-persian-pipe';
 
@@ -19,6 +20,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     StartComponent,
     DialogAskModeComponent,
     CurrentWorkDayComponent,
+    DialogLeavingWorkComponent,
     // PersianPipesModule
     // JdatePipe
   ],
