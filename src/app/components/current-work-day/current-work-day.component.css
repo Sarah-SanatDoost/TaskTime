@@ -104,3 +104,10 @@
     font-size: 20px;
     border-radius: 7px;
 }
+
+.warn{
+    background-color: orange;
+}
+.dan{
+    background-color: red;
+}
