@@ -11,6 +11,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { CurrentWorkDayComponent } from './components/current-work-day/current-work-day.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { DialogLeavingWorkComponent } from './components/current-work-day/dialog-leaving-work/dialog-leaving-work.component';
+import {MatIconModule} from '@angular/material/icon';
+import { NgxStarRatingModule } from 'ngx-star-rating';
 // import {JdatePipe} from 'ngx-persian';
 // import { PersianPipesModule } from 'ngx-persian-pipe';
 
@@ -31,7 +33,9 @@ import { DialogLeavingWorkComponent } from './components/current-work-day/dialog
     MatDialogModule,
     MatButtonModule,
     MatButtonToggleModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatIconModule,
+    NgxStarRatingModule
   
   ],
   providers: [],

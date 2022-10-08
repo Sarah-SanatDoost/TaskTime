@@ -6,11 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dialog-leaving-work.component.css']
 })
 export class DialogLeavingWorkComponent implements OnInit {
-
   constructor() { }
-
   description = "";
   ngOnInit(): void {
   }
+  
 
 }
