@@ -14,13 +14,18 @@ export class CurrentWorkDayComponent implements OnInit {
   progressbarValue = 0;
   curSec: number = 0;
   rest: boolean = false;
+  d = new Date(); 
+  H =this.d.getHours(); 
+  M =this.d.getMinutes(); 
+  time = this.H + ":" + this.M;
+
 
   startTimer(seconds: number) {
     // const time = seconds;
     const timer$ = interval(1000);
 
     const sub = timer$.subscribe((sec) => {
-      this.progressbarValue = 0 + sec * 100 / seconds;
+      this.progressbarValue = sec * 100 / seconds;
       this.curSec = sec;
 
       if (this.curSec === seconds) {
@@ -28,17 +33,35 @@ export class CurrentWorkDayComponent implements OnInit {
       }
     });
   }
+  
 
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
-
   }
 
   public onOpenDialog() {
     this.dialog.open(DialogLeavingWorkComponent,
       { panelClass: 'custom-container' });
   }
+
+
+  // public getCurrentTime(){
+
+  //   let d = new Date(); 
+  //   let H =d.getHours(); 
+  //   let M =d.getMinutes(); 
+  //   let time = H + ":" + M;
+
+  //   console.log(time);
+  // }
+
+ 
+  // nearest midnight in the past:
+  // let d = new Date();
+  // d.setHours(0,0,0,0);
+
+
 
 //   public updateColor() {
 // if (this.rest === true){

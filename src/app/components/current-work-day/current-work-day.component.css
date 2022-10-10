@@ -45,7 +45,8 @@
 
 .progress {
     width: 850px;
-    position: relative;
+    height: 5px;
+    /* position: relative; */
 }
 
 ::ng-deep.mat-progress-bar-fill::after {
