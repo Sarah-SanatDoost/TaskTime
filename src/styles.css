@@ -4,7 +4,7 @@
     src: url(assets/fonts/IRANSansWebKE.ttf) format('trueType');
 }
 html, body { height: 100%; }
-body { margin: 0; font-family: "IRANSans", "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: "IRANSans", "Helvetica Neue", sans-serif; overflow: hidden !important; }
 
 *{
     direction: rtl;

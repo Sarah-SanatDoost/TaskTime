@@ -4,6 +4,7 @@ export interface Elements {
     time?: string;
     day?: string;
     date?:string;
-    mode:string;
+    mode?:string;
     description?:string;
+    arriveTime?: string
 }

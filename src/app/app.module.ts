@@ -13,6 +13,11 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { DialogLeavingWorkComponent } from './components/current-work-day/dialog-leaving-work/dialog-leaving-work.component';
 import {MatIconModule} from '@angular/material/icon';
 import { NgxStarRatingModule } from 'ngx-star-rating';
+import { CommonModule } from '@angular/common';
+import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+// import { BrowserModule } from '@angular/platform-browser'
+
 // import {JdatePipe} from 'ngx-persian';
 // import { PersianPipesModule } from 'ngx-persian-pipe';
 
@@ -23,6 +28,8 @@ import { NgxStarRatingModule } from 'ngx-star-rating';
     DialogAskModeComponent,
     CurrentWorkDayComponent,
     DialogLeavingWorkComponent,
+    AdminPanelComponent
+    // BrowserModule
     // PersianPipesModule
     // JdatePipe
   ],
@@ -35,8 +42,10 @@ import { NgxStarRatingModule } from 'ngx-star-rating';
     MatButtonToggleModule,
     MatProgressBarModule,
     MatIconModule,
-    NgxStarRatingModule
-  
+    NgxStarRatingModule,
+    CommonModule ,
+    MatSlideToggleModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
