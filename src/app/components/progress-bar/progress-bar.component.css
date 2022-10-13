@@ -1,0 +1,26 @@
+.time-bar-container{
+    font-size: 12px;
+}
+.progress {
+    width: 850px;
+    position: relative;
+}
+.point-fill {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #9f9f9f;
+    align-items: end;
+}
+.point-empty{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color:white;
+    border: 1px solid #9f9f9f;
+    align-items: start;
+}
+.timebar{
+    width: 887px;
+
+}

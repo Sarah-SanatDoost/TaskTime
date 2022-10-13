@@ -16,6 +16,8 @@ import { NgxStarRatingModule } from 'ngx-star-rating';
 import { CommonModule } from '@angular/common';
 import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { AdminCalendarComponent } from './components/admin-calendar/admin-calendar.component';
+import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 // import { BrowserModule } from '@angular/platform-browser'
 
 // import {JdatePipe} from 'ngx-persian';
@@ -28,7 +30,9 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     DialogAskModeComponent,
     CurrentWorkDayComponent,
     DialogLeavingWorkComponent,
-    AdminPanelComponent
+    AdminPanelComponent,
+    AdminCalendarComponent,
+    ProgressBarComponent
     // BrowserModule
     // PersianPipesModule
     // JdatePipe

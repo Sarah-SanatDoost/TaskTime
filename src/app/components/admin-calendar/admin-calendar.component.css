@@ -1,10 +1,19 @@
-::ng-deep.mat-slide-toggle{
-    font-family: "IRANSans" !important;
+.user-name {
+    color: #4895d6;
+    font-size: 16px;
+    font-weight: bold;
 }
-.user-container{
-    padding: 20px;
+.time-container{
+    margin-top: 1.5rem;
+    font-size: 16px;
 }
-/* ------------------------------- */
+.after , .before , .calendar{
+    cursor: pointer;
+}
+.calendar{
+    font-size: 22px;
+}
+/* ============ */
 .switch {
     position: relative;
     display: inline-block;
