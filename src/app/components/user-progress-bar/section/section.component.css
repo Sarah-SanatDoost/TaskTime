@@ -1,0 +1,10 @@
+.light-grey{
+    background-color: #eaeaea ;
+    height: 5px;
+    width: 850px;
+    /* position: absolute; */
+}
+.progress-bar{
+    height: 10px;
+    width: 850px;
+}

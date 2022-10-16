@@ -6,15 +6,18 @@
 
 
     <div class="d-flex flex-row justify-content-center mt-4">
-        <ngx-star-rating [id]="'rating'"></ngx-star-rating>
+        <ngx-star-rating [(ngModel)]="rating2" [id]="'rating'"></ngx-star-rating>
+       
     </div>
+    
 
     <div class="form-group">
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-            placeholder="هرچه میخواهد دل تنگت بگو ..."></textarea>
+            placeholder=" میخواهد دل تنگت بگو ..."></textarea>
     </div>
 
     <div class="d-flex flex-row justify-content-center mt-4">
-        <button mat-dialog-close class="go iransans" mat-raised-button>به سلامت</button>
+        <button mat-dialog-close class="go iransans" mat-raised-button>به سلامت </button>
+        
     </div>
 </div>

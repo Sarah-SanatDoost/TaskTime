@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dialog-leaving-work.component.css']
 })
 export class DialogLeavingWorkComponent implements OnInit {
+
+ 
+
+
   constructor() { }
+  
+  rating2:number=0 ;
+ 
   description = "";
   ngOnInit(): void {
   }
-  
+  // onRatingSet(rating: number): void {
+  //   console.log(rating)
+  // }
 
 }

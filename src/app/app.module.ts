@@ -17,7 +17,8 @@ import { CommonModule } from '@angular/common';
 import { AdminPanelComponent } from './components/admin-panel/admin-panel.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { AdminCalendarComponent } from './components/admin-calendar/admin-calendar.component';
-import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
+import { SectionComponent } from './components/user-progress-bar/section/section.component';
+import { UserProgressBarComponent } from './components/user-progress-bar/user-progress-bar.component';
 // import { BrowserModule } from '@angular/platform-browser'
 
 // import {JdatePipe} from 'ngx-persian';
@@ -32,7 +33,8 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
     DialogLeavingWorkComponent,
     AdminPanelComponent,
     AdminCalendarComponent,
-    ProgressBarComponent
+    SectionComponent,
+    UserProgressBarComponent
     // BrowserModule
     // PersianPipesModule
     // JdatePipe

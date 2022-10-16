@@ -5,20 +5,23 @@ import { interval, takeUntil, timer } from 'rxjs';
 // import { TimeBars } from 'src/app/interfaces/time-bars';
 import { DialogLeavingWorkComponent } from './dialog-leaving-work/dialog-leaving-work.component';
 
-interface task {
-  startTime: number;
-  endTime: Date;
-  status: status
-}
+// interface task {
+//   startTime: number;
+//   endTime: Date;
+//   status: status
+// }
 
-  export enum color {
-  '#61cf4f',
-  '#fc8f8f',
-  '#9f9f9f'
-}
-interface status {
-  color: color;
-}
+//   export enum color {
+//   '#61cf4f',
+//   '#fc8f8f',
+//   '#9f9f9f'
+// }
+// interface status {
+//   color: color;
+// }
+
+
+let section: [];
 
 @Component({
   selector: 'app-current-work-day',
@@ -31,6 +34,7 @@ interface status {
 
 
 export class CurrentWorkDayComponent implements OnInit {
+
 
   // tasks: task[] =[
   // {startTime : this.totalPercent , endTime: Date.now , status: }
@@ -63,6 +67,15 @@ export class CurrentWorkDayComponent implements OnInit {
 
   }
 
+  pushUnit() {
+    let i: number = 0
+    for (i; i <= 1440; i++) {
+      section.push()
+      console.log(section)
+    }
+  }
+
+
   public onOpenDialog() {
     this.dialog.open(DialogLeavingWorkComponent,
       { panelClass: 'custom-container' });
@@ -86,6 +99,11 @@ export class CurrentWorkDayComponent implements OnInit {
       }
     });
   }
+
+
+
+
+
 
   startGreen() {
 

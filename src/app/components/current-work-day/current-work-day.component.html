@@ -15,22 +15,28 @@
                 <span class="col d-flex flex-row justify-content-end">00:00</span>
             </div>
 
-            <div class="d-flex flex-row align-items-end ltr bar">
+
+            <app-user-progress-bar></app-user-progress-bar>
+
+
+            <!-- <div class="d-flex flex-row align-items-end ltr bar">
                 <div class="point-fill"></div>
                 <mat-progress-bar class="progress mt-5 d-flex" mode="determinate" [value]="progressbarValue" dir="ltr">
                 </mat-progress-bar>
                 <div class="point-empty"></div>
-            </div>
+            </div> -->
 
-
-
+          
             <div class="d-flex flex-row align-items-end ltr bar">
                 <div class="point-fill"></div>
                 <div class="p ltr">
+                    
                     <div [style.width.%]="totalPercent" class="grey ltr"></div>
                     <div [style.margin-left.%]="totalPercent" class="green ltr"></div>
+                    
                 </div>
                 <div class="point-empty"></div>
+
             </div>
 
 
