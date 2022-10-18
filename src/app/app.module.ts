@@ -18,13 +18,14 @@ import { AdminPanelComponent } from './components/admin-panel/admin-panel.compon
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { AdminCalendarComponent } from './components/admin-calendar/admin-calendar.component';
 import { SectionComponent } from './components/user-progress-bar/section/section.component';
-import { UserProgressBarComponent } from './components/user-progress-bar/user-progress-bar.component';
+import { UserProgressBarComponent } from './components/user-progress-bar/user-progress-bar.component';8
 // import { BrowserModule } from '@angular/platform-browser'
 
 // import {JdatePipe} from 'ngx-persian';
 // import { PersianPipesModule } from 'ngx-persian-pipe';
 
 @NgModule({
+  
   declarations: [
     AppComponent,
     StartComponent,
@@ -34,7 +35,8 @@ import { UserProgressBarComponent } from './components/user-progress-bar/user-pr
     AdminPanelComponent,
     AdminCalendarComponent,
     SectionComponent,
-    UserProgressBarComponent
+    UserProgressBarComponent,
+    // CommonModule
     // BrowserModule
     // PersianPipesModule
     // JdatePipe
@@ -49,11 +51,11 @@ import { UserProgressBarComponent } from './components/user-progress-bar/user-pr
     MatProgressBarModule,
     MatIconModule,
     NgxStarRatingModule,
-    CommonModule ,
+    CommonModule,
     MatSlideToggleModule
    
   ],
-  providers: [],
+  providers: [UserProgressBarComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,54 +1,32 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-// import * as moment from 'jalali-moment';
 import { interval, takeUntil, timer } from 'rxjs';
-// import { TimeBars } from 'src/app/interfaces/time-bars';
-import { DialogLeavingWorkComponent } from './dialog-leaving-work/dialog-leaving-work.component';
+import { EunitSectionColor } from 'src/app/const/const';
+import { IUnitInfo } from 'src/app/interfaces/unit-info.interface';
+import { TaskStatusService } from 'src/app/task-status.service';
+import { SectionComponent } from '../user-progress-bar/section/section.component';
+import { UnitComponent } from '../user-progress-bar/section/unit/unit.component';
+import { UserProgressBarComponent } from '../user-progress-bar/user-progress-bar.component';
+import { DialogLeavingWorkComponent } from './dialog-leaving-work/dialog-leaving-work.component'
 
-// interface task {
-//   startTime: number;
-//   endTime: Date;
-//   status: status
-// }
-
-//   export enum color {
-//   '#61cf4f',
-//   '#fc8f8f',
-//   '#9f9f9f'
-// }
-// interface status {
-//   color: color;
-// }
-
-
-let section: [];
 
 @Component({
   selector: 'app-current-work-day',
   templateUrl: './current-work-day.component.html',
-  styleUrls: ['./current-work-day.component.css']
+  styleUrls: ['./current-work-day.component.css'],
+  providers: [SectionComponent]
 })
-
-
-
-
 
 export class CurrentWorkDayComponent implements OnInit {
 
+  startWork: EventEmitter<IUnitInfo> = new EventEmitter<IUnitInfo>();
 
-  // tasks: task[] =[
-  // {startTime : this.totalPercent , endTime: Date.now , status: }
-  // ]
+  constructor(public dialog: MatDialog, private userProgressBarComponent: UserProgressBarComponent) { }
 
-  @Output() startWork = new EventEmitter();
-  @Input() myValue: any;
-  // @Input() isclicked :boolean = false;
 
-  constructor(public dialog: MatDialog) { }
 
   progressbarValue = 0;
   curSec: number = 0;
-  rest: boolean = false;
   d = new Date();
   H = this.d.getHours();
   M = this.d.getMinutes();
@@ -58,21 +36,8 @@ export class CurrentWorkDayComponent implements OnInit {
   minutes = this.M
   totalPercent = (this.hours + this.minutes) * 100 / 1440;
 
-  // bars:TimeBars[] =[
-  // {startTime: 9:10 , endTime: 17 }
-  // ]
-
-
   ngOnInit(): void {
-
-  }
-
-  pushUnit() {
-    let i: number = 0
-    for (i; i <= 1440; i++) {
-      section.push()
-      console.log(section)
-    }
+   
   }
 
 
@@ -81,50 +46,21 @@ export class CurrentWorkDayComponent implements OnInit {
       { panelClass: 'custom-container' });
   }
 
-  public onStart(e: Event) {
-    this.startWork.emit(e)
+  onStartWork() {
+     const unitInfo = {
+      // color:EunitSectionColor = EunitSectionColor.GREEN,
+      // index:0,
+      // section:1`
+    
+    // this.userProgressBarComponent.createComponent(UnitComponent.unitInfo.color)
   }
-
-
-  startTimer() {
-    const seconds: number = 60;
-    const timer$ = interval(1000);
-
-    const sub = timer$.subscribe((sec) => {
-      this.progressbarValue = sec * 100 / seconds;
-      this.curSec = sec;
-
-      if (this.curSec === seconds) {
-        sub.unsubscribe();
-      }
-    });
-  }
-
-
-
-
-
-
-  startGreen() {
-
-  }
-  startRed() {
-
-  }
-
-
-
-  // ngOnChanges(changes: SimpleChanges) {
-  //   if(changes && changes['myValue']) {
-  //     this.onStart(e);
-  //   }
 }
-//  this.isclicked = e.changed
 
-//   public updateColor() {
-// if (this.rest === true){
-//   return 'warn';
-// }else{
-//   return 'primary';
-// }
-//   }
+
+}
+
+
+
+
+
+

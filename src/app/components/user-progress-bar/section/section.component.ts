@@ -1,4 +1,5 @@
 import { AfterContentInit, AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentFactoryResolver, Directive, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { IUnitInfo } from 'src/app/interfaces/unit-info.interface';
 import { UnitComponent } from './unit/unit.component';
 
 
@@ -14,40 +15,44 @@ import { UnitComponent } from './unit/unit.component';
 //   selector: '[app-section]',
 // })
 
-export class SectionComponent implements OnInit,AfterViewInit,AfterViewChecked,AfterContentInit {
+export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked, AfterContentInit {
 
-  index!:number;
-  color!:string;
+  index!: number;
+  color!: string;
   dateTime!: Date;
+  unitInfo!:IUnitInfo;
 
-  constructor(private cdRef : ChangeDetectorRef,private resolver: ComponentFactoryResolver) {}
+  constructor(private cdRef: ChangeDetectorRef, private resolver: ComponentFactoryResolver) { }
 
   @ViewChild("unitsection", { read: ViewContainerRef })
   unitsectioncontainer!: ViewContainerRef;
 
-  get localStorage(){
+  get localStorage() {
     return localStorage;
   }
 
   ngOnInit(): void {
-   this.dateTime= new Date();
+    this.dateTime = new Date();
   }
   ngAfterViewInit(): void {
-    
+
   }
-  ngAfterViewChecked():void{
-    
+  ngAfterViewChecked(): void {
+
   }
-  ngAfterContentInit(): void{
+  ngAfterContentInit(): void {
     // console.log(this.index);
-    setInterval(() => {
-      this.createComponent();
-      localStorage.setItem('localkey', 'localkeyvalue');
-    }, 1000);
+    // for (let i = 0; i <= 1440; i++) {
+      setInterval(() => {
+        this.createComponent(this.unitInfo);
+
+        localStorage.setItem('localkey', 'localkeyvalue');
+      }, 1000);
+    // }
     this.cdRef.detectChanges();
   }
 
-  createComponent() {
+  createComponent(unitInfo: IUnitInfo) {
     //this.unitsectioncontainer.clear(); 
     const factory = this.resolver.resolveComponentFactory(UnitComponent);
     const componentRef = this.unitsectioncontainer.createComponent(factory);
@@ -55,9 +60,9 @@ export class SectionComponent implements OnInit,AfterViewInit,AfterViewChecked,A
 
     setTimeout(() => {
       //componentRef.instance.index= 20;
-      //componentRef.instance.color= 'red';
+      // componentRef.instance.color = this.color;
     }, 100);
-    
+
   }
 
 }

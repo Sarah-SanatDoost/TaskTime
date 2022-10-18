@@ -1,1 +1,22 @@
-<div class="unit" style="margin-left: 0px;"></div>
+<div 
+class="unit"
+[style.width.px]="width"
+[style.background-color]= "color"
+>
+</div>
+
+<!-- [ngStyle]="{'background-color': color}" -->
+
+
+
+<!-- <ng-template [ngClass]="{
+        'red' : taskstatus.rest === true,
+        'green': taskstatus.work === true,
+        'grey': taskstatus.outwork === true}"></ng-template> -->
+
+
+
+        <!-- *ngIf="taskstatus.rest ? 'red' : (taskstatus.work ? 'green':'grey')" -->
+
+
+        <!-- [ngStyle]="{color: color}" -->

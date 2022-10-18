@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ComponentFactory, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { IUnitInfo } from 'src/app/interfaces/unit-info.interface';
 import { SectionComponent } from './section/section.component';
 
 @Component({
@@ -10,21 +11,21 @@ export class UserProgressBarComponent implements OnInit, AfterViewInit {
 
   @ViewChild("section", { read: ViewContainerRef })
   sectioncontainer!: ViewContainerRef;
-
+  unitInfo!:IUnitInfo;
   constructor(private resolver: ComponentFactoryResolver) {}
  
 
   ngOnInit(): void {
+  
     
-
   }
 
 ngAfterViewInit(): void {
-  this.createComponent();
-  this.createComponent();
+  this.createComponent(this.unitInfo);
 }
 
-  createComponent() {
+  createComponent(unitInfo:IUnitInfo) {
+    this.unitInfo=unitInfo;
     this.sectioncontainer.clear(); 
     const factory = this.resolver.resolveComponentFactory(SectionComponent);
     const componentRef = this.sectioncontainer.createComponent(factory);
