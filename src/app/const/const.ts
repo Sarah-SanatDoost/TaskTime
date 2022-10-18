@@ -1,5 +1,5 @@
 export enum EunitSectionColor{
     RED = 'red',
-    GREEN = 'green',
+    GREEN = '#61cf4f',
     GRAY = "#9f9f9f"
 }

@@ -30,8 +30,8 @@ ngAfterViewInit(): void {
     const factory = this.resolver.resolveComponentFactory(SectionComponent);
     const componentRef = this.sectioncontainer.createComponent(factory);
     setTimeout(() => {
-      componentRef.instance.index= 20;
-      componentRef.instance.color= 'red';
+      // componentRef.instance.index= 20;
+      // componentRef.instance.color= 'red';
     }, 100);
     
   }

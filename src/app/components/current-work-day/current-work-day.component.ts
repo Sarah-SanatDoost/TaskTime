@@ -37,7 +37,7 @@ export class CurrentWorkDayComponent implements OnInit {
   totalPercent = (this.hours + this.minutes) * 100 / 1440;
 
   ngOnInit(): void {
-   
+
   }
 
 
@@ -47,13 +47,13 @@ export class CurrentWorkDayComponent implements OnInit {
   }
 
   onStartWork() {
-     const unitInfo = {
-      // color:EunitSectionColor = EunitSectionColor.GREEN,
-      // index:0,
-      // section:1`
-    
-    // this.userProgressBarComponent.createComponent(UnitComponent.unitInfo.color)
-  }
+  //   const unitInfo = {
+  //    color: EunitSectionColor
+  // }
+  // this.startWork.emit
+
+  
+  this.userProgressBarComponent.createComponent(SectionComponent.unitInfo);
 }
 
 

@@ -1,4 +1,5 @@
 import { AfterContentInit, AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentFactoryResolver, Directive, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { EunitSectionColor } from 'src/app/const/const';
 import { IUnitInfo } from 'src/app/interfaces/unit-info.interface';
 import { UnitComponent } from './unit/unit.component';
 
@@ -57,10 +58,11 @@ export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked
     const factory = this.resolver.resolveComponentFactory(UnitComponent);
     const componentRef = this.unitsectioncontainer.createComponent(factory);
 
+    
 
     setTimeout(() => {
       //componentRef.instance.index= 20;
-      // componentRef.instance.color = this.color;
+      // componentRef.instance.color = 'EunitSectionColor.RED';
     }, 100);
 
   }
