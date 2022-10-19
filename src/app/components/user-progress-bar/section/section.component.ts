@@ -1,6 +1,8 @@
 import { AfterContentInit, AfterViewChecked, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentFactoryResolver, Directive, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { interval } from 'rxjs';
 import { EunitSectionColor } from 'src/app/const/const';
 import { IUnitInfo } from 'src/app/interfaces/unit-info.interface';
+import { TaskStatusService } from 'src/app/task-status.service';
 import { UnitComponent } from './unit/unit.component';
 
 
@@ -23,7 +25,7 @@ export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked
   dateTime!: Date;
   unitInfo!: IUnitInfo;
 
-  constructor(private cdRef: ChangeDetectorRef, private resolver: ComponentFactoryResolver) { }
+  constructor(private cdRef: ChangeDetectorRef, private resolver: ComponentFactoryResolver , private taskStatus: TaskStatusService) { }
 
   @ViewChild("unitsection", { read: ViewContainerRef })
   unitsectioncontainer!: ViewContainerRef;
@@ -31,7 +33,7 @@ export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked
   get localStorage() {
     return localStorage;
   }
-  timer: any = 0;
+
 
   ngOnInit(): void {
     this.dateTime = new Date();
@@ -44,21 +46,27 @@ export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked
   }
   ngAfterContentInit(): void {
 
-    setInterval(() => {
+
+   clearInterval(this.taskStatus.timer);
+    this.taskStatus.timer=  setInterval(() => {
+     
       this.createComponent();
 
       localStorage.setItem('localkey', 'localkeyvalue');
-    }, 1000);
+ 
+    }, 500);
+
+    // clearInterval(this.timer);
+    // this.timer=  setInterval;
+
     this.cdRef.detectChanges();
-    clearInterval(this.timer);
-    this.timer = setInterval
   }
 
   createComponent() {
-    //this.unitsectioncontainer.clear(); 
+ 
     const factory = this.resolver.resolveComponentFactory(UnitComponent);
     const componentRef = this.unitsectioncontainer.createComponent(factory);
-
+    
 
 
     setTimeout(() => {

@@ -13,6 +13,7 @@ export class UserProgressBarComponent implements OnInit, AfterViewInit {
   @ViewChild("section", { read: ViewContainerRef })
   sectioncontainer!: ViewContainerRef;
   unitInfo!:IUnitInfo;
+  timer:any = 0;
   constructor(private cdRef: ChangeDetectorRef, private resolver: ComponentFactoryResolver , private taskStatus: TaskStatusService) {}
  
 
@@ -38,10 +39,9 @@ this.cdRef.detectChanges();
       const factory = this.resolver.resolveComponentFactory(SectionComponent);
       const componentRef = this.sectioncontainer.createComponent(factory);
      
+     
       // componentRef.instance.index= 20;
       // componentRef.instance.color= 'red';
    
-   
-    
   }
 }
