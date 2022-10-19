@@ -12,17 +12,16 @@ import { IUnitInfo } from 'src/app/interfaces/unit-info.interface';
   styleUrls: ['./unit.component.css']
 })
 export class UnitComponent implements OnInit {
-  color:EunitSectionColor= EunitSectionColor.GRAY
-  width: number = 850/1440
+  color:EunitSectionColor=EunitSectionColor.GRAY;
+  width: number = 850/1440;
   // static color: EunitSectionColor = EunitSectionColor.GREEN;
 
-  static unitInfo: IUnitInfo = {
-    color: EunitSectionColor.GREEN,
-  }
+
 
   constructor(public taskstatus : TaskStatusService) { }
 
   ngOnInit(): void {
+    this.color=this.taskstatus.unitInfo.color;
   }
   // setTimeout(() => {
   //   //componentRef.instance.index= 20;

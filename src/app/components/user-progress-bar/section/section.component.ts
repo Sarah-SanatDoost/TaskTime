@@ -21,7 +21,7 @@ export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked
   index!: number;
   color!: string;
   dateTime!: Date;
-  unitInfo!:IUnitInfo;
+  unitInfo!: IUnitInfo;
 
   constructor(private cdRef: ChangeDetectorRef, private resolver: ComponentFactoryResolver) { }
 
@@ -31,6 +31,7 @@ export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked
   get localStorage() {
     return localStorage;
   }
+  timer: any = 0;
 
   ngOnInit(): void {
     this.dateTime = new Date();
@@ -42,23 +43,23 @@ export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked
 
   }
   ngAfterContentInit(): void {
-    // console.log(this.index);
-    // for (let i = 0; i <= 1440; i++) {
-      setInterval(() => {
-        this.createComponent(this.unitInfo);
 
-        localStorage.setItem('localkey', 'localkeyvalue');
-      }, 1000);
-    // }
+    setInterval(() => {
+      this.createComponent();
+
+      localStorage.setItem('localkey', 'localkeyvalue');
+    }, 1000);
     this.cdRef.detectChanges();
+    clearInterval(this.timer);
+    this.timer = setInterval
   }
 
-  createComponent(unitInfo: IUnitInfo) {
+  createComponent() {
     //this.unitsectioncontainer.clear(); 
     const factory = this.resolver.resolveComponentFactory(UnitComponent);
     const componentRef = this.unitsectioncontainer.createComponent(factory);
 
-    
+
 
     setTimeout(() => {
       //componentRef.instance.index= 20;

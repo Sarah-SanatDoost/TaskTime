@@ -1,5 +1,6 @@
-import { AfterViewInit, Component, ComponentFactory, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ComponentFactory, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { IUnitInfo } from 'src/app/interfaces/unit-info.interface';
+import { TaskStatusService } from 'src/app/task-status.service';
 import { SectionComponent } from './section/section.component';
 
 @Component({
@@ -12,7 +13,7 @@ export class UserProgressBarComponent implements OnInit, AfterViewInit {
   @ViewChild("section", { read: ViewContainerRef })
   sectioncontainer!: ViewContainerRef;
   unitInfo!:IUnitInfo;
-  constructor(private resolver: ComponentFactoryResolver) {}
+  constructor(private cdRef: ChangeDetectorRef, private resolver: ComponentFactoryResolver , private taskStatus: TaskStatusService) {}
  
 
   ngOnInit(): void {
@@ -21,18 +22,26 @@ export class UserProgressBarComponent implements OnInit, AfterViewInit {
   }
 
 ngAfterViewInit(): void {
-  this.createComponent(this.unitInfo);
+  
+  
+}
+ngAfterContentInit(): void {
+  setTimeout(() => {
+    this.createComponent();
+      
+  }, 500);
+this.cdRef.detectChanges();
 }
 
-  createComponent(unitInfo:IUnitInfo) {
-    this.unitInfo=unitInfo;
-    this.sectioncontainer.clear(); 
-    const factory = this.resolver.resolveComponentFactory(SectionComponent);
-    const componentRef = this.sectioncontainer.createComponent(factory);
-    setTimeout(() => {
+  createComponent() {
+      // this.sectioncontainer.clear(); 
+      const factory = this.resolver.resolveComponentFactory(SectionComponent);
+      const componentRef = this.sectioncontainer.createComponent(factory);
+     
       // componentRef.instance.index= 20;
       // componentRef.instance.color= 'red';
-    }, 100);
+   
+   
     
   }
 }

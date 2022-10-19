@@ -21,7 +21,7 @@ export class CurrentWorkDayComponent implements OnInit {
 
   startWork: EventEmitter<IUnitInfo> = new EventEmitter<IUnitInfo>();
 
-  constructor(public dialog: MatDialog, private userProgressBarComponent: UserProgressBarComponent) { }
+  constructor(public dialog: MatDialog, private userProgressBarComponent: UserProgressBarComponent,public taskStatus:TaskStatusService) { }
 
 
 
@@ -37,7 +37,10 @@ export class CurrentWorkDayComponent implements OnInit {
   totalPercent = (this.hours + this.minutes) * 100 / 1440;
 
   ngOnInit(): void {
-
+    const unitInfo = {
+      color: EunitSectionColor.GRAY
+   } as IUnitInfo;
+ this.taskStatus.unitInfo = unitInfo;
   }
 
 
@@ -47,13 +50,14 @@ export class CurrentWorkDayComponent implements OnInit {
   }
 
   onStartWork() {
-  //   const unitInfo = {
-  //    color: EunitSectionColor
-  // }
-  // this.startWork.emit
+    const unitInfo = {
+     color: EunitSectionColor.GREEN
+  } as IUnitInfo;
+this.taskStatus.unitInfo = unitInfo;
 
   
-  this.userProgressBarComponent.createComponent(SectionComponent.unitInfo);
+  // this.userProgressBarComponent.createComponent();
+  document.getElementById('taskbar')?.click();
 }
 
 
