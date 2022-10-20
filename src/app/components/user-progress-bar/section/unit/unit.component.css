@@ -1,18 +1,3 @@
-.unit {
-    /* width: 1px; */
+.unit { 
     height: 5px;
-    /* background-color: #9f9f9f; */
-        /* position: absolute; */
-}
-
-.red {
-    background-color: red;
-}
-
-.green {
-    background-color: green;
-}
-
-.grey {
-    background-color: #9f9f9f;
 }

@@ -35,7 +35,8 @@ export class CurrentWorkDayComponent implements OnInit {
   hours = this.H * 60
   minutes = this.M
   totalPercent = (this.hours + this.minutes) * 100 / 1440;
-  disabledWork:boolean= false;
+  disabledWork: boolean = false;
+  disabledRest: boolean = false;
 
 
   ngOnInit(): void {
@@ -52,6 +53,8 @@ export class CurrentWorkDayComponent implements OnInit {
   }
 
   onStartWork() {
+    this.disabledWork = true;
+    this.disabledRest = false;
     const unitInfo = {
       color: EunitSectionColor.GREEN
     } as IUnitInfo;
@@ -59,12 +62,26 @@ export class CurrentWorkDayComponent implements OnInit {
 
 
     // this.userProgressBarComponent.createComponent();
-    document.getElementById('taskbar')?.click();
-  
+    document.getElementById('task1')?.click();
+
   }
 
+  onStartRest() {
+    this.disabledRest = true;
+    this.disabledWork = false;
+    const unitInfo = {
+      color: EunitSectionColor.RED
+    } as IUnitInfo;
+
+    this.taskStatus.unitInfo = unitInfo;
+
+    document.getElementById('task2')?.click();
+  }
 
 }
+
+
+
 
 
 

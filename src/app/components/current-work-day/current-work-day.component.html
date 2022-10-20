@@ -4,7 +4,7 @@
         <div class="d-flex flex-row justify-content-center align-items-center iransans">
             <span class="work-time ms-3">02:25</span>
             <button [disabled]="disabledWork" (click)="onStartWork()" class="work iransans ms-3" mat-stroked-button>در حال کار</button>
-            <button  class="rest iransans ms-3" mat-stroked-button>استراحت</button>
+            <button (click)="onStartRest()"  class="rest iransans ms-3" mat-stroked-button>استراحت</button>
             <span class="rest-time ms-3">00:18</span>
         </div>
 
