@@ -24,7 +24,7 @@ export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked
   color!: string;
   dateTime!: Date;
   unitInfo!: IUnitInfo;
-  
+interval:any 
 
   constructor(private cdRef: ChangeDetectorRef, private resolver: ComponentFactoryResolver, private taskStatus: TaskStatusService) { }
 
@@ -48,15 +48,19 @@ export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked
   ngAfterContentInit(): void {
     // const stop:number =this.taskStatus.unitIndex === 1440
 
-    clearInterval();
-    this.taskStatus.timer = setInterval(() => {
+
+    this.interval =setInterval(() => {
 
       this.createComponent();
       this.taskStatus.setUnitIndex();
 
       localStorage.setItem('localkey', 'localkeyvalue');
 
-    }, 50);
+      if (this.taskStatus.unitIndex === 1440) {
+        clearInterval(this.interval);
+      }
+    }, 1000);
+
 
     this.cdRef.detectChanges();
   }
@@ -73,9 +77,10 @@ export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked
     }, 100);
 
   }
+  // stop(this.taskStatus.unitIndex){
+  //   if taskStatus.unitIndex
+  //   }
 
 }
-function setUnitIndex() {
-  throw new Error('Function not implemented.');
-}
+
 
