@@ -14,6 +14,8 @@ import { IUnitInfo } from 'src/app/interfaces/unit-info.interface';
 export class UnitComponent implements OnInit {
   color:EunitSectionColor=EunitSectionColor.GRAY;
   width: number = 850/1440;
+  // unitIndex:TaskStatusService;
+  // static color: EunitSectionColor = EunitSectionColor.GREEN;
   // static color: EunitSectionColor = EunitSectionColor.GREEN;
 
 
@@ -22,7 +24,9 @@ export class UnitComponent implements OnInit {
 
   ngOnInit(): void {
     this.color=this.taskstatus.unitInfo.color;
+    console.log(this.taskstatus.unitIndex)
   }
+
   // setTimeout(() => {
   //   //componentRef.instance.index= 20;
   //   componentRef.instance.color = this.color;

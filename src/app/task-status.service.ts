@@ -10,6 +10,13 @@ export class TaskStatusService {
   // work:boolean = false;
   // rest:boolean = false;
   // outwork:boolean = true;
-  unitInfo!:IUnitInfo;
+  unitInfo!: IUnitInfo;
   timer: any = 0;
+  unitIndex: number = 0;
+
+  setUnitIndex() {
+    if (this.unitIndex <= 1440) {
+      this.unitIndex++;
+    }
+  }
 }

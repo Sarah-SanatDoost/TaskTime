@@ -20,12 +20,13 @@ import { UnitComponent } from './unit/unit.component';
 
 export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked, AfterContentInit {
 
-  index!: number;
+  index!: IUnitInfo;
   color!: string;
   dateTime!: Date;
   unitInfo!: IUnitInfo;
+  
 
-  constructor(private cdRef: ChangeDetectorRef, private resolver: ComponentFactoryResolver , private taskStatus: TaskStatusService) { }
+  constructor(private cdRef: ChangeDetectorRef, private resolver: ComponentFactoryResolver, private taskStatus: TaskStatusService) { }
 
   @ViewChild("unitsection", { read: ViewContainerRef })
   unitsectioncontainer!: ViewContainerRef;
@@ -45,28 +46,25 @@ export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked
 
   }
   ngAfterContentInit(): void {
+    // const stop:number =this.taskStatus.unitIndex === 1440
 
+    clearInterval();
+    this.taskStatus.timer = setInterval(() => {
 
-   clearInterval(this.taskStatus.timer);
-    this.taskStatus.timer=  setInterval(() => {
-     
       this.createComponent();
+      this.taskStatus.setUnitIndex();
 
       localStorage.setItem('localkey', 'localkeyvalue');
- 
-    }, 500);
 
-    // clearInterval(this.timer);
-    // this.timer=  setInterval;
+    }, 50);
 
     this.cdRef.detectChanges();
   }
 
   createComponent() {
- 
+
     const factory = this.resolver.resolveComponentFactory(UnitComponent);
     const componentRef = this.unitsectioncontainer.createComponent(factory);
-    
 
 
     setTimeout(() => {
@@ -77,3 +75,7 @@ export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked
   }
 
 }
+function setUnitIndex() {
+  throw new Error('Function not implemented.');
+}
+
