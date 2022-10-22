@@ -2,6 +2,7 @@ import { AfterContentInit, AfterViewChecked, AfterViewInit, ChangeDetectionStrat
 import { interval } from 'rxjs';
 import { EunitSectionColor } from 'src/app/const/const';
 import { IUnitInfo } from 'src/app/interfaces/unit-info.interface';
+import { ShowTimeService } from 'src/app/show-time.service';
 import { TaskStatusService } from 'src/app/task-status.service';
 import { UnitComponent } from './unit/unit.component';
 
@@ -26,7 +27,11 @@ export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked
   unitInfo!: IUnitInfo;
 interval:any 
 
-  constructor(private cdRef: ChangeDetectorRef, private resolver: ComponentFactoryResolver, private taskStatus: TaskStatusService) { }
+min =this.taskStatus.unitIndex ;
+h = this.min / 60;
+m = this.min % 60;
+  constructor(private cdRef: ChangeDetectorRef, private resolver: ComponentFactoryResolver, private taskStatus: TaskStatusService,
+    public showTime: ShowTimeService) { }
 
   @ViewChild("unitsection", { read: ViewContainerRef })
   unitsectioncontainer!: ViewContainerRef;
@@ -38,6 +43,7 @@ interval:any
 
   ngOnInit(): void {
     this.dateTime = new Date();
+    // console.log(this.showTime.unitStatus)
   }
   ngAfterViewInit(): void {
 
@@ -52,13 +58,16 @@ interval:any
 
       this.createComponent();
       this.taskStatus.setUnitIndex();
+      // this.showTime.workTimes.push(this.h + ':' + this.m +'-w')
+      // this.showTime.unitStatus.push(this.taskStatus.unitIndex)
+      // this.showTime.workTimes.push(this.taskStatus.unitIndex)
 
       localStorage.setItem('localkey', 'localkeyvalue');
 
       if (this.taskStatus.unitIndex === 1440) {
         clearInterval(this.interval);
       }
-    }, 500);
+    }, 1000);
 
 
     this.cdRef.detectChanges();

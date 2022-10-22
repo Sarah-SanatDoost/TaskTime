@@ -1,5 +1,6 @@
 import { AfterViewInit, ChangeDetectorRef, Component, ComponentFactory, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { IUnitInfo } from 'src/app/interfaces/unit-info.interface';
+import { ShowTimeService } from 'src/app/show-time.service';
 import { TaskStatusService } from 'src/app/task-status.service';
 import { SectionComponent } from './section/section.component';
 
@@ -12,36 +13,40 @@ export class UserProgressBarComponent implements OnInit, AfterViewInit {
 
   @ViewChild("section", { read: ViewContainerRef })
   sectioncontainer!: ViewContainerRef;
-  unitInfo!:IUnitInfo;
-  timer:any = 0;
-  constructor(private cdRef: ChangeDetectorRef, private resolver: ComponentFactoryResolver , private taskStatus: TaskStatusService) {}
- 
+  unitInfo!: IUnitInfo;
+  timer: any = 0;
+  constructor(private cdRef: ChangeDetectorRef, private resolver: ComponentFactoryResolver, private taskStatus: TaskStatusService,
+    public showTime: ShowTimeService) { }
+
 
   ngOnInit(): void {
-  
-    
+
+
   }
 
-ngAfterViewInit(): void {
-  
-  
-}
-ngAfterContentInit(): void {
-  setTimeout(() => {
-    this.createComponent();
-      
-  }, 500);
-this.cdRef.detectChanges();
-}
+  ngAfterViewInit(): void {
+
+
+  }
+  ngAfterContentInit(): void {
+    setTimeout(() => {
+      this.createComponent();
+      this.taskStatus.setUnitIndex();
+      // this.showTime.workTimes.push(this.taskStatus.unitIndex)
+      // this.showTime.workTimes.push(this.taskStatus.h + ':' + this.taskStatus.m +'-w')
+    }, 500);
+    this.cdRef.detectChanges();
+  }
 
   createComponent() {
-      // this.sectioncontainer.clear(); 
-      const factory = this.resolver.resolveComponentFactory(SectionComponent);
-      const componentRef = this.sectioncontainer.createComponent(factory);
-     
-     
-      // componentRef.instance.index= 20;
-      // componentRef.instance.color= 'red';
-   
+    // this.sectioncontainer.clear(); 
+    const factory = this.resolver.resolveComponentFactory(SectionComponent);
+    const componentRef = this.sectioncontainer.createComponent(factory);
+    
+
+
+    // componentRef.instance.index= 20;
+    // componentRef.instance.color= 'red';
+
   }
 }
