@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { TaskStatusService } from 'src/app/task-status.service';
 import { EunitSectionColor } from 'src/app/const/const';
 import { IUnitInfo } from 'src/app/interfaces/unit-info.interface';
+import { ShowTimeService } from 'src/app/show-time.service';
 
 
 @Component({
@@ -12,19 +13,18 @@ import { IUnitInfo } from 'src/app/interfaces/unit-info.interface';
   styleUrls: ['./unit.component.css']
 })
 export class UnitComponent implements OnInit {
+  d = new Date();
+  H = this.d.getHours();
+  M = this.d.getMinutes();
+  time = this.H + ":" + this.M;
   color:EunitSectionColor=EunitSectionColor.GRAY;
   width: number = 850/1440;
-  // unitIndex:TaskStatusService;
-  // static color: EunitSectionColor = EunitSectionColor.GREEN;
-  // static color: EunitSectionColor = EunitSectionColor.GREEN;
 
-
-
-  constructor(public taskstatus : TaskStatusService) { }
+  constructor(public taskStatus : TaskStatusService ,public showTime : ShowTimeService) { }
 
   ngOnInit(): void {
-    this.color=this.taskstatus.unitInfo.color;
-    console.log(this.taskstatus.unitIndex)
+    this.color=this.taskStatus.unitInfo.color;
+    console.log(this.taskStatus.sectionIndex , this.showTime.workTimes)
   }
 
   // setTimeout(() => {

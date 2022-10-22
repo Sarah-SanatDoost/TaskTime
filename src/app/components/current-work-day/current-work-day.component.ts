@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { interval, takeUntil, timer } from 'rxjs';
 import { EunitSectionColor } from 'src/app/const/const';
 import { IUnitInfo } from 'src/app/interfaces/unit-info.interface';
+import { ShowTimeService } from 'src/app/show-time.service';
 import { TaskStatusService } from 'src/app/task-status.service';
 import { SectionComponent } from '../user-progress-bar/section/section.component';
 import { UnitComponent } from '../user-progress-bar/section/unit/unit.component';
@@ -21,7 +22,8 @@ export class CurrentWorkDayComponent implements OnInit {
 
   startWork: EventEmitter<IUnitInfo> = new EventEmitter<IUnitInfo>();
 
-  constructor(public dialog: MatDialog, private userProgressBarComponent: UserProgressBarComponent, public taskStatus: TaskStatusService) { }
+  constructor(public dialog: MatDialog, private userProgressBarComponent: UserProgressBarComponent, public taskStatus: TaskStatusService,
+    public showTime: ShowTimeService  ) { }
 
 
 
@@ -44,6 +46,7 @@ export class CurrentWorkDayComponent implements OnInit {
       color: EunitSectionColor.GRAY
     } as IUnitInfo;
     this.taskStatus.unitInfo = unitInfo;
+    console.log( )
   }
 
 
@@ -55,6 +58,9 @@ export class CurrentWorkDayComponent implements OnInit {
   onStartWork() {
     this.disabledWork = true;
     this.disabledRest = false;
+    this.showTime.workTimes.push(this.taskStatus.unitIndex)
+    this.taskStatus.setSectionIndex();
+    
     const unitInfo = {
       color: EunitSectionColor.GREEN
     } as IUnitInfo;
@@ -69,6 +75,7 @@ export class CurrentWorkDayComponent implements OnInit {
   onStartRest() {
     this.disabledRest = true;
     this.disabledWork = false;
+    this.taskStatus.setSectionIndex();
     const unitInfo = {
       color: EunitSectionColor.RED
     } as IUnitInfo;

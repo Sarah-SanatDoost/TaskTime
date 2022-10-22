@@ -46,10 +46,9 @@ interval:any
 
   }
   ngAfterContentInit(): void {
-    // const stop:number =this.taskStatus.unitIndex === 1440
 
-
-    this.interval =setInterval(() => {
+    clearInterval(this.taskStatus.timer);
+    this.taskStatus.timer =setInterval(() => {
 
       this.createComponent();
       this.taskStatus.setUnitIndex();
@@ -59,7 +58,7 @@ interval:any
       if (this.taskStatus.unitIndex === 1440) {
         clearInterval(this.interval);
       }
-    }, 1000);
+    }, 500);
 
 
     this.cdRef.detectChanges();
