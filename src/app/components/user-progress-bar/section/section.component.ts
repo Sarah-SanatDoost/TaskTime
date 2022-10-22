@@ -53,21 +53,19 @@ m = this.min % 60;
   }
   ngAfterContentInit(): void {
 
-    clearInterval(this.taskStatus.timer);
+    
+    clearInterval(this.taskStatus.timer );
     this.taskStatus.timer =setInterval(() => {
 
       this.createComponent();
       this.taskStatus.setUnitIndex();
-      // this.showTime.workTimes.push(this.h + ':' + this.m +'-w')
-      // this.showTime.unitStatus.push(this.taskStatus.unitIndex)
-      // this.showTime.workTimes.push(this.taskStatus.unitIndex)
 
       localStorage.setItem('localkey', 'localkeyvalue');
 
-      if (this.taskStatus.unitIndex === 1440) {
-        clearInterval(this.interval);
+      if (this.taskStatus.unitIndex >= 1440) {
+        clearInterval(this.taskStatus.timer);
       }
-    }, 1000);
+    }, 10);
 
 
     this.cdRef.detectChanges();
