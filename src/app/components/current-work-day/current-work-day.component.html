@@ -3,15 +3,15 @@
     <div class="container-timer">
         <div class="d-flex flex-row justify-content-center align-items-center iransans">
             <span class="work-time ms-3">02:25</span>
-            <button [disabled]="disabledWork" (click)="onStartWork()" class="work iransans ms-3" mat-stroked-button>در حال کار</button>
-            <button [disabled]="disabledRest" (click)="onStartRest()"  class="rest iransans ms-3" mat-stroked-button>استراحت</button>
+            <button [disabled]="taskStatus.disabledWork" (click)="onStartWork()" class="work iransans ms-3" mat-stroked-button>در حال کار</button>
+            <button [disabled]="taskStatus.disabledRest" (click)="onStartRest()"  class="rest iransans ms-3" mat-stroked-button>استراحت</button>
             <span class="rest-time ms-3">00:18</span>
         </div>
 
 
         <div class="time-bar-container d-flex flex-column justify-content-end  align-items-center iransans mt-5">
             <div class="timebar d-flex flex-row">
-                <span class="d-flex flex-row w-100">{{time}}</span>
+                <!-- <span class="d-flex flex-row w-100">{{time}}</span> -->
 
                 <!-- <span class="col d-flex flex-row justify-content-start">24:00</span>
                 <span class="col d-flex flex-row justify-content-end">00:00</span> -->

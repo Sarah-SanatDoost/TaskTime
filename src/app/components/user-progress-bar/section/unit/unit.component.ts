@@ -25,8 +25,8 @@ export class UnitComponent implements OnInit {
   ngOnInit(): void {
     this.color=this.taskStatus.unitInfo.color;
     // console.log(this.taskStatus.sectionIndex , this.showTime.workTimes)
-    // console.log(this.taskStatus.unitIndex)
-    console.log(this.showTime.workTimes)
+    // console.log(this.taskStatus.sectionIndex)
+    // console.log(this.showTime.workTimes)
   }
 
 }

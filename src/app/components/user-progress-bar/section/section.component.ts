@@ -10,19 +10,23 @@ import { UnitComponent } from './unit/unit.component';
   selector: '[app-section]',
   templateUrl: './section.component.html',
   styleUrls: ['./section.component.css'],
- 
+
 })
 export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked, AfterContentInit {
 
-  index!: IUnitInfo;
-  color!: string;
-  dateTime!: Date;
+  // index!: IUnitInfo;
+  // color!: string;
+  // dateTime!: Date;
   unitInfo!: IUnitInfo;
-interval:any 
+  interval: any
+  d = new Date();
+  H = this.d.getHours() * 60;
+  M = this.d.getMinutes();
+  time = this.H + this.M;
 
-min =this.taskStatus.unitIndex ;
-h = this.min / 60;
-m = this.min % 60;
+  min = this.taskStatus.unitIndex;
+  h = this.min / 60;
+  m = this.min % 60;
   constructor(private cdRef: ChangeDetectorRef, private resolver: ComponentFactoryResolver, private taskStatus: TaskStatusService,
     public showTime: ShowTimeService) { }
 
@@ -35,7 +39,7 @@ m = this.min % 60;
 
 
   ngOnInit(): void {
-    this.dateTime = new Date();
+   
   }
   ngAfterViewInit(): void {
 
@@ -45,9 +49,8 @@ m = this.min % 60;
   }
   ngAfterContentInit(): void {
 
-    
-    clearInterval(this.taskStatus.timer );
-    this.taskStatus.timer =setInterval(() => {
+    clearInterval(this.taskStatus.timer);
+    this.taskStatus.timer = setInterval(() => {
 
       this.createComponent();
       this.taskStatus.setUnitIndex();
@@ -58,6 +61,7 @@ m = this.min % 60;
         clearInterval(this.taskStatus.timer);
       }
     }, 1000);
+  
 
 
     this.cdRef.detectChanges();

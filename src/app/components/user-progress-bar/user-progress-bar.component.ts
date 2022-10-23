@@ -15,12 +15,12 @@ export class UserProgressBarComponent implements OnInit, AfterViewInit {
   sectioncontainer!: ViewContainerRef;
   unitInfo!: IUnitInfo;
   timer: any = 0;
+
   constructor(private cdRef: ChangeDetectorRef, private resolver: ComponentFactoryResolver, private taskStatus: TaskStatusService,
     public showTime: ShowTimeService) { }
 
 
   ngOnInit(): void {
-
 
   }
 
