@@ -6,19 +6,12 @@ import { ShowTimeService } from 'src/app/show-time.service';
 import { TaskStatusService } from 'src/app/task-status.service';
 import { UnitComponent } from './unit/unit.component';
 
-
-
-
 @Component({
   selector: '[app-section]',
   templateUrl: './section.component.html',
   styleUrls: ['./section.component.css'],
-  //changeDetection: ChangeDetectionStrategy.OnPush
+ 
 })
-// @Directive({
-//   selector: '[app-section]',
-// })
-
 export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked, AfterContentInit {
 
   index!: IUnitInfo;
@@ -43,7 +36,6 @@ m = this.min % 60;
 
   ngOnInit(): void {
     this.dateTime = new Date();
-    // console.log(this.showTime.unitStatus)
   }
   ngAfterViewInit(): void {
 
@@ -65,7 +57,7 @@ m = this.min % 60;
       if (this.taskStatus.unitIndex >= 1440) {
         clearInterval(this.taskStatus.timer);
       }
-    }, 10);
+    }, 1000);
 
 
     this.cdRef.detectChanges();
@@ -83,9 +75,6 @@ m = this.min % 60;
     }, 100);
 
   }
-  // stop(this.taskStatus.unitIndex){
-  //   if taskStatus.unitIndex
-  //   }
 
 }
 

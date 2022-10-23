@@ -29,9 +29,4 @@ export class UnitComponent implements OnInit {
     console.log(this.showTime.workTimes)
   }
 
-  // setTimeout(() => {
-  //   //componentRef.instance.index= 20;
-  //   componentRef.instance.color = this.color;
-  // }, 100);
-
 }

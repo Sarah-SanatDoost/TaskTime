@@ -7,9 +7,6 @@ import { IUnitInfo } from './interfaces/unit-info.interface';
 export class TaskStatusService {
   constructor() { }
 
-  // work:boolean = false;
-  // rest:boolean = false;
-  // outwork:boolean = true;
   unitInfo!: IUnitInfo;
   timer: any = 0;
   unitIndex: number = 0;
