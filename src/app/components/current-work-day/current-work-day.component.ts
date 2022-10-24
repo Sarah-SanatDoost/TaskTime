@@ -56,7 +56,6 @@ export class CurrentWorkDayComponent implements OnInit {
   onStartWork() {
     this.taskStatus.disabledWork =true;
     this.taskStatus.disabledRest = false;
-    // this.showTime.unitStatus!.push({start: 0 , end:1 , status:'hi'})
 
     this.showTime.workTimes.push(Math.floor(this.taskStatus.unitIndex / 60)+ ':' + this.taskStatus.unitIndex %60 +'-w')
     // this.showTime.workTimes.push(this.taskStatus.unitIndex +'-w')

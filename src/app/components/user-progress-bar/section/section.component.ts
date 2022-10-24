@@ -39,41 +39,29 @@ export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked
 
 
   ngOnInit(): void {
-    // for(let i=0; i<this.time; i++){
-    //    this.createComponent();
-    //    this.taskStatus.setUnitIndex();
-    // }
 
   }
   ngAfterViewInit(): void {
+   
 
+    if (this.taskStatus.sectionIndex == 1) {
 
-    if (this.taskStatus.sectionIndex == 0) {
-      
-      let stopTime = this.time;
-      let i:number = 0;
-      // for (let i = 0; i < stopTime; i++) {
-
-      while (i < stopTime) {
-        console.log(stopTime)
+      let stop = this.time;
+      for (let i = 0; i <= stop; i++) {
         this.createComponent();
-        // this.taskStatus.setUnitIndex();
-
-        if (this.taskStatus.unitIndex == stopTime) {
-          clearInterval(this.taskStatus.timer);
-        }
-        i++
-        // }
+        this.taskStatus.setUnitIndex();
       }
+
     }
+   
 
     clearInterval(this.taskStatus.timer);
     this.taskStatus.timer = setInterval(() => {
 
       this.createComponent();
       this.taskStatus.setUnitIndex();
-      this.getTotalWork();
-      this.getTotalRest();
+      // this.getTotalWork();
+      // this.getTotalRest();
       localStorage.setItem('localkey', 'localkeyvalue');
 
       if (this.taskStatus.unitIndex >= 1440) {
@@ -86,10 +74,10 @@ export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked
     this.cdRef.detectChanges();
   }
   ngAfterViewChecked(): void {
-
+ 
   }
   ngAfterContentInit(): void {
-
+  
   }
 
   createComponent() {
