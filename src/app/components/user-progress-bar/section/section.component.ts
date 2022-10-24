@@ -39,32 +39,57 @@ export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked
 
 
   ngOnInit(): void {
-   
+    // for(let i=0; i<this.time; i++){
+    //    this.createComponent();
+    //    this.taskStatus.setUnitIndex();
+    // }
+
   }
   ngAfterViewInit(): void {
 
-  }
-  ngAfterViewChecked(): void {
 
-  }
-  ngAfterContentInit(): void {
+    if (this.taskStatus.sectionIndex == 0) {
+      
+      let stopTime = this.time;
+      let i:number = 0;
+      // for (let i = 0; i < stopTime; i++) {
+
+      while (i < stopTime) {
+        console.log(stopTime)
+        this.createComponent();
+        // this.taskStatus.setUnitIndex();
+
+        if (this.taskStatus.unitIndex == stopTime) {
+          clearInterval(this.taskStatus.timer);
+        }
+        i++
+        // }
+      }
+    }
 
     clearInterval(this.taskStatus.timer);
     this.taskStatus.timer = setInterval(() => {
 
       this.createComponent();
       this.taskStatus.setUnitIndex();
-
+      this.getTotalWork();
+      this.getTotalRest();
       localStorage.setItem('localkey', 'localkeyvalue');
 
       if (this.taskStatus.unitIndex >= 1440) {
         clearInterval(this.taskStatus.timer);
       }
     }, 1000);
-  
+
 
 
     this.cdRef.detectChanges();
+  }
+  ngAfterViewChecked(): void {
+
+  }
+  ngAfterContentInit(): void {
+
   }
 
   createComponent() {
@@ -79,6 +104,31 @@ export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked
     }, 100);
 
   }
+
+  getTotalWork() {
+    let u = this.taskStatus.unitIndex
+
+    if (this.taskStatus.disabledWork === true) {
+      this.showTime.green.push(u)
+    }
+  }
+  getTotalRest() {
+    let u = this.taskStatus.unitIndex;
+
+    if (this.taskStatus.disabledRest === true) {
+      this.showTime.red.push(u)
+    }
+  }
+
+  // for (u; s <= 0; u++) {
+  //   this.showTime.green.push(u)
+  // }
+
+  // while (i === this.taskStatus.sectionIndex){
+  //   this.showTime.green.push(this.taskStatus.unitIndex)
+  // }
+
+
 
 }
 
