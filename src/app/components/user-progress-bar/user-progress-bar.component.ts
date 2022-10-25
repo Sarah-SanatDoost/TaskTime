@@ -14,7 +14,6 @@ export class UserProgressBarComponent implements OnInit, AfterViewInit {
   @ViewChild("section", { read: ViewContainerRef })
   sectioncontainer!: ViewContainerRef;
   unitInfo!: IUnitInfo;
-  timer: any = 0;
 
   constructor(private cdRef: ChangeDetectorRef, private resolver: ComponentFactoryResolver, private taskStatus: TaskStatusService,
     public showTime: ShowTimeService) { }
@@ -29,16 +28,17 @@ export class UserProgressBarComponent implements OnInit, AfterViewInit {
 
   }
   ngAfterContentInit(): void {
+    
     setTimeout(() => {
-      this.createComponent();
-      this.taskStatus.setUnitIndex();
+      this.createSectionComponent();
+     
       // this.showTime.workTimes.push(this.taskStatus.unitIndex)
       // this.showTime.workTimes.push(this.taskStatus.h + ':' + this.taskStatus.m +'-w')
     }, 500);
     this.cdRef.detectChanges();
   }
 
-  createComponent() {
+  createSectionComponent() {
     // this.sectioncontainer.clear(); 
     const factory = this.resolver.resolveComponentFactory(SectionComponent);
     const componentRef = this.sectioncontainer.createComponent(factory);

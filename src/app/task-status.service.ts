@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { IUnitInfo } from './interfaces/unit-info.interface';
 
 @Injectable({
@@ -10,7 +11,8 @@ export class TaskStatusService {
   unitInfo!: IUnitInfo;
   timer: any = 0;
   unitIndex: number = 0;
-  sectionIndex: number = 0;
+  // sectionIndex: BehaviorSubject<number>  = new BehaviorSubject<number>(0);
+ sectionIndex: number =0 ;
   disabledWork: boolean = false;
   disabledRest: boolean = false;
 
@@ -22,6 +24,7 @@ export class TaskStatusService {
 
   setSectionIndex() {
     if (this.unitIndex <= 1440) {
+      // this.sectionIndex.next(1);
       this.sectionIndex++;
     }
 

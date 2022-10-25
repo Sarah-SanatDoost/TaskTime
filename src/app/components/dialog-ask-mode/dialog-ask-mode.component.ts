@@ -56,7 +56,7 @@ export class DialogAskModeComponent implements OnInit {
 
     //  this.showTime.workTimes.push(Math.floor(this.taskStatus.unitIndex / 60)+ ':' + this.taskStatus.unitIndex %60 +'-w')
     // this.showTime.workTimes.push(this.taskStatus.unitIndex +'-w')
-    this.taskStatus.setSectionIndex();
+    //this.taskStatus.setSectionIndex();
 
     const unitInfo = {
       color: EunitSectionColor.GREEN

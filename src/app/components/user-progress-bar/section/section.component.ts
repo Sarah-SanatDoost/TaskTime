@@ -5,6 +5,7 @@ import { IUnitInfo } from 'src/app/interfaces/unit-info.interface';
 import { ShowTimeService } from 'src/app/show-time.service';
 import { TaskStatusService } from 'src/app/task-status.service';
 import { UnitComponent } from './unit/unit.component';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: '[app-section]',
@@ -12,13 +13,12 @@ import { UnitComponent } from './unit/unit.component';
   styleUrls: ['./section.component.css'],
 
 })
-export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked, AfterContentInit {
+export class SectionComponent implements OnInit, AfterViewInit {
 
   // index!: IUnitInfo;
   // color!: string;
   // dateTime!: Date;
-  unitInfo!: IUnitInfo;
-  interval: any
+  unitInfo!: IUnitInfo; 
   d = new Date();
   H = this.d.getHours() * 60;
   M = this.d.getMinutes();
@@ -42,27 +42,37 @@ export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked
 
   }
   ngAfterViewInit(): void {
-   
 
     if (this.taskStatus.sectionIndex == 1) {
 
       let stop = this.time;
       for (let i = 0; i <= stop; i++) {
-        this.createComponent();
-        this.taskStatus.setUnitIndex();
+        this.createUnitComponent();
+        // if(i == this.time){
+        //   setTimeout(() => {
+            
+        //     this.clearTimer();
+        //     this.createPer1Second();
+        //   }, 500);
+         
+    
+        // }
       }
 
-    }
-   
 
-    clearInterval(this.taskStatus.timer);
+      
+     
+    }      
+    
+  }
+
+  createPer1Second(){
     this.taskStatus.timer = setInterval(() => {
 
-      this.createComponent();
-      this.taskStatus.setUnitIndex();
+      this.createUnitComponent();
       // this.getTotalWork();
       // this.getTotalRest();
-      localStorage.setItem('localkey', 'localkeyvalue');
+      //localStorage.setItem('localkey', 'localkeyvalue');
 
       if (this.taskStatus.unitIndex >= 1440) {
         clearInterval(this.taskStatus.timer);
@@ -73,24 +83,16 @@ export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked
 
     this.cdRef.detectChanges();
   }
-  ngAfterViewChecked(): void {
- 
-  }
-  ngAfterContentInit(): void {
-  
-  }
 
-  createComponent() {
+  createUnitComponent() {
 
     const factory = this.resolver.resolveComponentFactory(UnitComponent);
     const componentRef = this.unitsectioncontainer.createComponent(factory);
 
+  }
 
-    setTimeout(() => {
-      //componentRef.instance.index= 20;
-      // componentRef.instance.color = 'EunitSectionColor.RED';
-    }, 100);
-
+  clearTimer(){
+    clearInterval(this.taskStatus.timer);
   }
 
   getTotalWork() {

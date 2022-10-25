@@ -45,6 +45,7 @@ export class CurrentWorkDayComponent implements OnInit {
       color: EunitSectionColor.GRAY
     } as IUnitInfo;
     this.taskStatus.unitInfo = unitInfo;
+    this.taskStatus.setSectionIndex();
   }
 
 
@@ -57,9 +58,9 @@ export class CurrentWorkDayComponent implements OnInit {
     this.taskStatus.disabledWork =true;
     this.taskStatus.disabledRest = false;
 
-    this.showTime.workTimes.push(Math.floor(this.taskStatus.unitIndex / 60)+ ':' + this.taskStatus.unitIndex %60 +'-w')
+    // this.showTime.workTimes.push(Math.floor(this.taskStatus.unitIndex / 60)+ ':' + this.taskStatus.unitIndex %60 +'-w')
     // this.showTime.workTimes.push(this.taskStatus.unitIndex +'-w')
-    this.taskStatus.setSectionIndex();
+    //this.taskStatus.setSectionIndex();
     
     const unitInfo = {
       color: EunitSectionColor.GREEN
