@@ -33,17 +33,8 @@ export class DialogAskModeComponent implements OnInit {
 
   ngAfterViewInit(): void {
 
-    // if (this.taskStatus.sectionIndex == 1) {
 
-    //   let stop = this.time;
-    //   for (let i = 0; i <= stop; i++) {
-    //     this.createComponent();
-    //     this.taskStatus.setUnitIndex();
-    //   }
-
-    // }
-
-    this.onStartWork()
+    // this.onStartWork()
     
  
 
@@ -66,18 +57,7 @@ export class DialogAskModeComponent implements OnInit {
     document.getElementById('task1')?.click();
   }
 
-  // createComponent() {
-
-  //   const factory = this.resolver.resolveComponentFactory(UnitComponent);
-  //   const componentRef = this.unitsectioncontainer.createComponent(factory);
-
-
-  //   setTimeout(() => {
-  //     //componentRef.instance.index= 20;
-  //     // componentRef.instance.color = 'EunitSectionColor.RED';
-  //   }, 100);
-
-  // }
+ 
 }
 
 

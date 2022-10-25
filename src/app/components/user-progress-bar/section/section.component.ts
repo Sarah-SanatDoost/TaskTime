@@ -39,34 +39,26 @@ export class SectionComponent implements OnInit, AfterViewInit {
 
 
   ngOnInit(): void {
-
+    
   }
   ngAfterViewInit(): void {
-
     if (this.taskStatus.sectionIndex == 1) {
 
       let stop = this.time;
       for (let i = 0; i <= stop; i++) {
-        this.createUnitComponent();
-        // if(i == this.time){
-        //   setTimeout(() => {
-            
-        //     this.clearTimer();
-        //     this.createPer1Second();
-        //   }, 500);
-         
-    
-        // }
-      }
-
-
+        this. createUnitComponent();
       
+      }
      
-    }      
+    } 
+    this. createPer1Second();
+        
     
   }
 
   createPer1Second(){
+
+   clearInterval(this.taskStatus.timer);
     this.taskStatus.timer = setInterval(() => {
 
       this.createUnitComponent();
@@ -91,9 +83,9 @@ export class SectionComponent implements OnInit, AfterViewInit {
 
   }
 
-  clearTimer(){
-    clearInterval(this.taskStatus.timer);
-  }
+  // clearTimer(){
+  //   clearInterval(this.taskStatus.timer);
+  // }
 
   getTotalWork() {
     let u = this.taskStatus.unitIndex
@@ -109,15 +101,6 @@ export class SectionComponent implements OnInit, AfterViewInit {
       this.showTime.red.push(u)
     }
   }
-
-  // for (u; s <= 0; u++) {
-  //   this.showTime.green.push(u)
-  // }
-
-  // while (i === this.taskStatus.sectionIndex){
-  //   this.showTime.green.push(this.taskStatus.unitIndex)
-  // }
-
 
 
 }

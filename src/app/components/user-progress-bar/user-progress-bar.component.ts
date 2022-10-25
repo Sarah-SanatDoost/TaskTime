@@ -3,6 +3,7 @@ import { IUnitInfo } from 'src/app/interfaces/unit-info.interface';
 import { ShowTimeService } from 'src/app/show-time.service';
 import { TaskStatusService } from 'src/app/task-status.service';
 import { SectionComponent } from './section/section.component';
+import { UnitComponent } from './section/unit/unit.component';
 
 @Component({
   selector: 'app-user-progress-bar',
@@ -39,8 +40,7 @@ export class UserProgressBarComponent implements OnInit, AfterViewInit {
   }
 
   createSectionComponent() {
-    // this.sectioncontainer.clear(); 
-    const factory = this.resolver.resolveComponentFactory(SectionComponent);
+    const factory = this.resolver.resolveComponentFactory(UnitComponent);
     const componentRef = this.sectioncontainer.createComponent(factory);
     
 

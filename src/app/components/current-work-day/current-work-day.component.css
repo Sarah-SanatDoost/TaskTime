@@ -31,20 +31,31 @@
     background-color: #ffe3e3;
 }
 
-.work:focus {
+/* .work:focus {
     box-shadow: 0 0 12px #61cf4f;
     border: 1px solid #61cf4f;
     background-color: #ecf8ea;
-}
+} */
 
-.rest:focus {
+/* .rest:focus {
     box-shadow: 0 0 12px #fc8f8f;
     border: 1px solid #fc8f8f;
     background-color: #ffe3e3;
+} */
+
+.rest:disabled{
+    box-shadow: 0 0 12px #fc8f8f;
+    border: 1px solid #fc8f8f;
+    background-color: #ffe3e3;
+    color: black;
 }
 
-
-
+.work:disabled{
+    box-shadow: 0 0 12px #61cf4f;
+    border: 1px solid #61cf4f;
+    background-color: #ecf8ea;
+    color: black;
+}
 ::ng-deep.mat-progress-bar-fill::after {
     background-color: #9f9f9f;
 

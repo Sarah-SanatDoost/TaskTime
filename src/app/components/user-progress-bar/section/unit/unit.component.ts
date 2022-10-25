@@ -18,7 +18,8 @@ export class UnitComponent implements OnInit {
   M = this.d.getMinutes();
   time = this.H + this.M;
   color: EunitSectionColor = EunitSectionColor.GRAY;
-  width: number = 850 / 1440;
+  width: GLfloat = 850 / 1440;
+
   length: number = 0;
 
   constructor(public taskStatus: TaskStatusService, public showTime: ShowTimeService) { }
@@ -27,7 +28,7 @@ export class UnitComponent implements OnInit {
     this.taskStatus.setUnitIndex();
   this.color=this.taskStatus.unitInfo.color;
     // console.log(this.taskStatus.sectionIndex , this.showTime.workTimes)
-    // console.log(this.taskStatus.sectionIndex)
+    console.log(this.taskStatus.sectionIndex)
     // console.log(this.showTime.workTimes)
     // console.log(this.getTotal())
     // console.log(this.taskStatus.sectionIndex, this.showTime.green);
