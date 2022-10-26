@@ -5,11 +5,13 @@ import { IUnitInfo } from 'src/app/interfaces/unit-info.interface';
 import { ShowTimeService } from 'src/app/show-time.service';
 import { TaskStatusService } from 'src/app/task-status.service';
 import { UnitComponent } from './unit/unit.component';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: '[app-section]',
   templateUrl: './section.component.html',
   styleUrls: ['./section.component.css'],
+  changeDetection: ChangeDetectionStrategy.Default
 
 })
 export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked, AfterContentInit {
@@ -33,6 +35,22 @@ export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked
   @ViewChild("unitsection", { read: ViewContainerRef })
   unitsectioncontainer!: ViewContainerRef;
 
+  promise = new Promise<void>((resolve, reject) => {
+    setTimeout(() => {
+
+      if (this.taskStatus.sectionIndex == 0) {
+        let stop = this.time;
+        for (let i = 0; i <= stop; i++) {
+          this.createComponent();
+          this.taskStatus.setUnitIndex();
+        }
+
+      }
+      resolve();
+      this.cdRef.detectChanges();
+    }, 2000);
+  })
+
   get localStorage() {
     return localStorage;
   }
@@ -42,42 +60,52 @@ export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked
 
   }
   ngAfterViewInit(): void {
-   
-
-    if (this.taskStatus.sectionIndex == 1) {
-
-      let stop = this.time;
-      for (let i = 0; i <= stop; i++) {
-        this.createComponent();
-        this.taskStatus.setUnitIndex();
-      }
-
-    }
-   
 
     clearInterval(this.taskStatus.timer);
-    this.taskStatus.timer = setInterval(() => {
-
-      this.createComponent();
-      this.taskStatus.setUnitIndex();
-      // this.getTotalWork();
-      // this.getTotalRest();
-      localStorage.setItem('localkey', 'localkeyvalue');
-
-      if (this.taskStatus.unitIndex >= 1440) {
-        clearInterval(this.taskStatus.timer);
+    this.taskStatus.timer = this.promise.then(() => {
+      if (this.taskStatus.sectionIndex == 0) {
+        this.taskStatus.setSectionIndex;
+        this.taskStatus.disabledRest = false;
+        this.taskStatus.disabledWork = true;
+        const unitInfo = {
+          color: EunitSectionColor.GREEN
+        } as IUnitInfo;
+        this.taskStatus.unitInfo = unitInfo;
+        this.cdRef.detectChanges();
       }
-    }, 1000);
+
+      setTimeout(() => {
+
+        clearInterval(this.taskStatus.timer);
+        this.taskStatus.timer = setInterval(() => {
+
+          this.createComponent();
+          this.taskStatus.setUnitIndex();
+          // this.getTotalWork();
+          // this.getTotalRest();
+          localStorage.setItem('localkey', 'localkeyvalue');
+
+          if (this.taskStatus.unitIndex >= 1440) {
+            clearInterval(this.taskStatus.timer);
+          }
+        }, 1000);
+
+      }, 500);
+
+    });
 
 
 
-    this.cdRef.detectChanges();
+
+
+
+
   }
   ngAfterViewChecked(): void {
- 
+
   }
   ngAfterContentInit(): void {
-  
+
   }
 
   createComponent() {
@@ -93,6 +121,10 @@ export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked
 
   }
 
+  // clearTimer(){
+  //   clearInterval(this.taskStatus.timer);
+  // }
+
   getTotalWork() {
     let u = this.taskStatus.unitIndex
 
@@ -107,15 +139,6 @@ export class SectionComponent implements OnInit, AfterViewInit, AfterViewChecked
       this.showTime.red.push(u)
     }
   }
-
-  // for (u; s <= 0; u++) {
-  //   this.showTime.green.push(u)
-  // }
-
-  // while (i === this.taskStatus.sectionIndex){
-  //   this.showTime.green.push(this.taskStatus.unitIndex)
-  // }
-
 
 
 }

@@ -43,7 +43,7 @@ export class DialogAskModeComponent implements OnInit {
 
     // }
 
-    this.onStartWork()
+    // this.onStartWork()
     
  
 
@@ -53,31 +53,10 @@ export class DialogAskModeComponent implements OnInit {
 
     this.taskStatus.disabledWork = true;
     this.taskStatus.disabledRest = false;
-
-    //  this.showTime.workTimes.push(Math.floor(this.taskStatus.unitIndex / 60)+ ':' + this.taskStatus.unitIndex %60 +'-w')
-    // this.showTime.workTimes.push(this.taskStatus.unitIndex +'-w')
     this.taskStatus.setSectionIndex();
 
-    const unitInfo = {
-      color: EunitSectionColor.GREEN
-    } as IUnitInfo;
-    this.taskStatus.unitInfo = unitInfo;
-
-    document.getElementById('task1')?.click();
   }
 
-  // createComponent() {
-
-  //   const factory = this.resolver.resolveComponentFactory(UnitComponent);
-  //   const componentRef = this.unitsectioncontainer.createComponent(factory);
-
-
-  //   setTimeout(() => {
-  //     //componentRef.instance.index= 20;
-  //     // componentRef.instance.color = 'EunitSectionColor.RED';
-  //   }, 100);
-
-  // }
 }
 
 

@@ -31,16 +31,18 @@
     background-color: #ffe3e3;
 }
 
-.work:focus {
+.work:disabled {
     box-shadow: 0 0 12px #61cf4f;
     border: 1px solid #61cf4f;
     background-color: #ecf8ea;
+    color:black;
 }
 
-.rest:focus {
+.rest:disabled {
     box-shadow: 0 0 12px #fc8f8f;
     border: 1px solid #fc8f8f;
     background-color: #ffe3e3;
+    color: black;
 }
 
 
